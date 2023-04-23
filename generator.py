@@ -27,7 +27,7 @@ def create_packages_with_parity_bit(number_of_packages, package_size):
 
             bit = random.randint(0, 1)
             package += str(bit)
-            if bit == 1:
+            if bit == 1:  # TODO refactor
                 number_of_1 += 1
 
         # even number_of_1

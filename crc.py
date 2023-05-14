@@ -1,3 +1,5 @@
+# Description: This file contains the functions to calculate the CRC code of a package and to check if the CRC code is correct
+
 def xor(p, q):
     if p == q:
         return '0'

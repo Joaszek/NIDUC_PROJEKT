@@ -1,8 +1,9 @@
+# Description: This file contains functions that test ARQ methods.
+
 import generator
 import channel
 import checker
 import crc
-import stats
 
 import numpy as np
 
@@ -12,7 +13,7 @@ def no_arq(package_length, number_of_packages):
 
     for probability in np.arange(0.8, 0, -0.01):
 
-        packages = generator.create_packages_with_parity_bit(
+        packages = generator.create_packages(
             number_of_packages, package_length)
 
         # statistics
@@ -59,8 +60,8 @@ def arq_parity_bit(package_length, number_of_packages):
                 correct_returns += 1
 
         percentage = (correct_returns / number_of_packages) * 100
-        data = (round(probability, 2), arq_requests,
-                correct_returns, round(percentage, 2))
+        data = (round(probability, 3), arq_requests,
+                correct_returns, round(percentage, 3))
         csv_data.append(data)
 
     return csv_data

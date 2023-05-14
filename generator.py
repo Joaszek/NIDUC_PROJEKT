@@ -1,14 +1,16 @@
-import random
+# Description: This file contains functions that generate packages
+
+from randGen import RandGen
+import time
 
 
 def create_packages(number_of_packages, package_size):
     packages = []
-
+    random = RandGen(time.time())
     for i in range(number_of_packages):
-
         package = ''
         for j in range(0, package_size):
-            bit = random.randint(0, 1)
+            bit = random.generate_zero_or_one()
             package += str(bit)
 
         packages.append(package)
@@ -18,14 +20,12 @@ def create_packages(number_of_packages, package_size):
 
 def create_packages_with_parity_bit(number_of_packages, package_size):
     packages = []
-
+    random = RandGen(time.time())
     for i in range(number_of_packages):
-
         package = ''
         number_of_1 = 0
         for j in range(0, package_size):
-
-            bit = random.randint(0, 1)
+            bit = random.generate_zero_or_one()
             package += str(bit)
             if bit == 1:  # TODO refactor
                 number_of_1 += 1

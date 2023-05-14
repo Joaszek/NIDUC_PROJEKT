@@ -1,3 +1,5 @@
+# Description: Menu class for displaying menu and getting user input
+
 import os
 
 from arq_tests import arq_crc, arq_parity_bit, no_arq

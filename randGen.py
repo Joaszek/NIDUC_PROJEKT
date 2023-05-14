@@ -11,7 +11,11 @@ class RandGen:
     # method for generating numbers
     def random(self):
         self.seed = (self.a * self.seed + self.c) % self.m
-        return self.seed
+        return int(self.seed % 2)
+
+    def random_zero_to_one(self):
+        self.seed = (self.a * self.seed + self.c) % self.m
+        return self.seed / 2 ** 32
 
     # method for returning 0 or 1 based on generated number
     def generate_zero_or_one(self):

@@ -70,7 +70,7 @@ def arq_parity_bit(package_length, number_of_packages):
 def arq_crc(package_length, number_of_packages, n, divisor):
     csv_data = []
 
-#  Dla prawdopodobienstwa od 0.3 do 0.0 z krokiem 0.01 tworzymy paczki z bitem parzystosci
+#  Dla prawdopodobienstwa od 0.8 do 0.0 z krokiem 0.01 tworzymy paczki z bitem parzystosci
     for probability in np.arange(0.3, 0, -0.01):
         packages = generator.create_packages_with_parity_bit(
             number_of_packages, package_length)

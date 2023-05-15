@@ -1,6 +1,6 @@
 from menu import Menu
 
-
+#aby uruchomić program należy w konsoli napisać python main.py
 def main():
     menuItems = ["arq crc", "arq parity bit",
                  "no arq", "change settings", "exit"]

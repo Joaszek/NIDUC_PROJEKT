@@ -45,7 +45,7 @@ class Tower:
                     if self.y <= mouse_pos[1] <= self.y + self.image.get_height():
                         self.text_box.visible = not self.text_box.visible
 
-    def update(self, event, dt):
+    def update(self, event, dt, propability):
         self.handle_events(event)
         self.time += dt
         # sending queued packets
@@ -75,9 +75,9 @@ class Tower:
 
             # possibility of disruption of packet (it always happens in the middle of the way)
             if (self.other_tower.x - self.x + 150) / 2 <= self.packet.x and not self.packet_disrupted and self.packet.type != "ack":
-                number = self.random.generate_zero_to_one()
+                number = self.random.random_zero_to_one()
                 self.packet_disrupted = True
-                if number <= 0.5:
+                if number <= propability / 100:
                     self.packet.type = "disrupted"
 
             # if packet reaches the receiver tower

@@ -20,7 +20,3 @@ class RandGen:
     # method for returning 0 or 1 based on generated number
     def generate_zero_or_one(self):
         return int(self.random() % 2)
-
-    # method for generating number in range 0 - 1
-    def generate_zero_to_one(self):
-        return self.random() / self.m

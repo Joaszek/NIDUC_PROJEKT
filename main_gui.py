@@ -33,7 +33,7 @@ slider_speed = UIHorizontalSlider(pygame.Rect(
 
 
 slider_length = UIHorizontalSlider(pygame.Rect(
-    (250, 100), (100, 25)), 1, (1, 100), manager=manager)
+    (250, 100), (100, 25)), 50, (0, 100), manager=manager)
 
 slider_packets = UIHorizontalSlider(pygame.Rect(
     (400, 100), (100, 25)), 1, (1, 100), manager=manager)
@@ -52,7 +52,7 @@ text_disrupted = font_small.render(
 text_ack = font_small.render('- Ack packet', False, (255, 255, 255))
 text_slider_speed = font_small.render(
     "Simulation speed", False, (255, 255, 255))
-text_slider_length = font_small.render("Packet length", False, (255, 255, 255))
+text_slider_length = font_small.render("Probabilty", False, (255, 255, 255))
 text_slider_packets = font_small.render(
     "Number of Packets", False, (255, 255, 255))
 
@@ -60,7 +60,7 @@ text_drop_down = font_small.render(
     "Select a error-control method", False, (255, 255, 255))
 
 
-drop_down = UIDropDownMenu(['no arq', 'arq parity bit', 'arq crc'],
+drop_down = UIDropDownMenu(['no arq', 'arq'],
                            'no arq',
                            pygame.Rect((550, 100), (150, 25)),
                            manager=manager)
@@ -126,7 +126,8 @@ while is_running:
         time_delta = 0
     for tower in towers:
         tower.draw(window_surface)
-        tower.update(event_list, time_delta * slider_speed.get_current_value())
+        tower.update(event_list, time_delta * slider_speed.get_current_value(),
+                     slider_length.get_current_value())
 
     text_number_speed = font_small.render(
         str(slider_speed.get_current_value()), False, (255, 255, 255))
